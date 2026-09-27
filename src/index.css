@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  font-family: "Inter", sans-serif;
+
+  color: #172033;
+  background: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --accent: #06b6d4;
+
+  --text-primary: #172033;
+  --text-secondary: #64748b;
+
+  --background: #ffffff;
+  --background-soft: #f8fafc;
+
+  --border: #e2e8f0;
+
+  --shadow-sm: 0 4px 15px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--background);
+  color: var(--text-primary);
+}
+
+button,
+a {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+section {
+  width: 100%;
+}
+
+/* =========================================================
+   MODERN SCROLL MOTION
+   ========================================================= */
+
+.scroll-reveal,
+.scroll-reveal-item {
+  opacity: 0;
+  transform: translateY(42px);
+  filter: blur(4px);
+
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-reveal.is-visible,
+.scroll-reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* .scroll-reveal-item {
+  transition-delay: var(--reveal-delay, 0ms);
+} */
+
+/* Hero scroll movement */
+
+.hero-content {
+  transform: translate3d(
+    0,
+    calc(var(--hero-scroll-y, 0px) * -1),
+    0
+  );
+
+  opacity: var(--hero-scroll-opacity, 1);
+}
+
+.hero-visual {
+  transform: translate3d(
+    0,
+    var(--hero-scroll-y, 0px),
+    0
+  );
+}
+
+/* Navbar while scrolling */
+
+.navbar {
+  transition:
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.navbar.navbar-scrolled {
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.07);
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .scroll-reveal,
+  .scroll-reveal-item,
+  .hero-content,
+  .hero-visual {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
